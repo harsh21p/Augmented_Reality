@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.ar.sceneform.plugin'
 }
 
 android {
@@ -8,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.hny.ar2"
-        minSdkVersion 18
+        minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -38,6 +39,17 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'com.google.ar:core:1.15.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.15.0'
+    implementation 'com.google.ar.sceneform:core:1.15.0'
+    implementation 'com.google.ar.sceneform:animation:1.13.0'
+
+
 }
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.android.application'
+
+sceneform.asset('sampledata/model_fight.fbx',
+        'default',
+        'sampledata/model_fight.sfa',
+        'src/main/assets/model_fight')
