@@ -34,17 +34,17 @@ public class HomeActivity extends AppCompatActivity {
                 userNameString = userName.getEditText().getText().toString();
                 phoneNoString = phoneNo.getEditText().getText().toString();
 
-                Intent intent=new Intent(getApplicationContext(),otpVerificationActivity.class);
-                intent.putExtra("phoneNo1",phoneNoString);
-                intent.putExtra("user",userNameString);
-                startActivity(intent);
+//                Intent intent=new Intent(getApplicationContext(),otpVerificationActivity.class);
+//                intent.putExtra("phoneNo1",phoneNoString);
+//                intent.putExtra("user",userNameString);
+//                startActivity(intent);
 
                 //AuthBypass
 //
-//                Intent intent=new Intent(getApplicationContext(),arClass.class);
-//                intent.putExtra("phone",phoneNoString);
-//                intent.putExtra("users",userNameString);
-//                startActivity(intent);
+                Intent intent=new Intent(getApplicationContext(),arClass.class);
+                intent.putExtra("phone",phoneNoString);
+                intent.putExtra("users",userNameString);
+                startActivity(intent);
 
             }
         });

@@ -18,10 +18,10 @@
         android:id="@+id/animatebtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="IDLE"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp"
+        android:background="@mipmap/ic_btn_capture_foreground"
         />
 
     <Button
@@ -32,7 +32,7 @@
         android:layout_toRightOf="@+id/animatebtn"
         android:layout_marginLeft="30dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="50dp"
         />
 
     <Button
@@ -43,7 +43,8 @@
         android:layout_toLeftOf="@+id/animatebtn"
         android:layout_marginRight="30dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="50dp"
         />
+
 
 </RelativeLayout>
