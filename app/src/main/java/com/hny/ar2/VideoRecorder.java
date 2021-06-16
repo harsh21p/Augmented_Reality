@@ -105,7 +105,7 @@ public class VideoRecorder {
             videoDirectory =
                     new File(
                             Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-                                    + "/Sceneform");
+                                    + "/Download");
         }
         if (videoBaseName == null || videoBaseName.isEmpty()) {
             videoBaseName = "Sample";
