@@ -102,7 +102,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="OTP Verification"
-                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginTop="30dp"
@@ -125,8 +124,6 @@
                 android:textSize="14sp"
                 android:layout_marginBottom="15dp"
                 android:text="Enter Mobile Number"
-                android:textColor="@color/black"
-
                 />
 
             <LinearLayout
@@ -137,15 +134,12 @@
                 android:orientation="horizontal"
                 android:layout_marginStart="60dp"
                 android:layout_marginEnd="60dp"
-
            >
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:gravity="center"
                     android:text="+91"
-                    android:textColor="@color/black"
                     android:textStyle="bold"
                    />
                 <EditText
@@ -155,6 +149,7 @@
                     android:background="@null"
                     android:hint="9999999999"
                     android:imeOptions="actionDone"
+                    android:layout_marginStart="5dp"
                     android:importantForAutofill="no"
                     android:inputType="number"
                     android:textStyle="bold"

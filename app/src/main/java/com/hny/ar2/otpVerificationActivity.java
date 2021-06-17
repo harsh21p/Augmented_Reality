@@ -50,7 +50,6 @@ public class otpVerificationActivity extends AppCompatActivity {
 
         phoneNo2=getIntent().getStringExtra("phone");
 
-
         progressBar.setVisibility(View.GONE);
 
         noOtpMove();
@@ -65,20 +64,17 @@ public class otpVerificationActivity extends AppCompatActivity {
                         otpField5.getText().toString()+otpField6.getText().toString();
                 if(otpbyfire.isEmpty() || otpbyfire.length()<6){
 
-                    Toast.makeText(getApplicationContext(),"Wrong",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Please enter OTP",Toast.LENGTH_SHORT).show();
 
                 }else {
                     progressBar.setVisibility(View.VISIBLE);
                     verifyCode(otpbyfire);
                 }
-
             }
         });
 
     }
-
     private void sendVerificationCodeToUser(String phoneNo2) {
-
 
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 "+91"+phoneNo2,
@@ -86,10 +82,7 @@ public class otpVerificationActivity extends AppCompatActivity {
                 TimeUnit.SECONDS,
                 TaskExecutors.MAIN_THREAD,
                 mCallbacks);
-
-
     }
-
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
         @Override
@@ -111,7 +104,7 @@ public class otpVerificationActivity extends AppCompatActivity {
         @Override
         public void onVerificationFailed(FirebaseException e) {
 
-            Toast.makeText(getApplicationContext(),e.getMessage()+" First",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Wrong OTP",Toast.LENGTH_SHORT).show();
 
         }
     };
@@ -136,7 +129,7 @@ public class otpVerificationActivity extends AppCompatActivity {
                             startActivity(intent);
                         }
                         else {
-                            Toast.makeText(getApplicationContext(),task.getException().getMessage()+" Second.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Wrong OTP",Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
                         }
                     }

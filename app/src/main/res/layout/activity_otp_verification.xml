@@ -101,7 +101,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="OTP Verification"
-            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -201,7 +200,7 @@
                 android:layout_marginTop="70dp"
                 android:background="#00000000"
                 android:text="Resend OTP"
-                android:textColor="@color/black"
+                android:textColor="#6C6A6A"
                 app:layout_constraintEnd_toEndOf="@+id/otpfield6"
                 app:layout_constraintTop_toBottomOf="@+id/otpfield4" />
 
@@ -221,7 +220,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="190dp"
+                android:layout_marginTop="250dp"
+                android:theme="@style/Theme.AR2.progessbar"
                 android:visibility="gone" />
 
         </RelativeLayout>

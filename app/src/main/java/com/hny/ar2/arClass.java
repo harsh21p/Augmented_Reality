@@ -52,7 +52,6 @@ public class arClass extends AppCompatActivity {
         userHelper.setPhoneNo(phoneNoString);
         reference.child(phoneNoString).setValue(userHelper);
 
-
         arFragment=(ArFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
         model = Uri.parse("model_fight.sfb");
         arFragment.setOnTapArPlaneListener((hitResult, plane, motionEvent) -> {
@@ -62,8 +61,6 @@ public class arClass extends AppCompatActivity {
         capture.setOnClickListener(view -> recording());
 
     }
-
-
     private void createModel(Anchor anchor, ArFragment arFragment) {
 
         ModelRenderable
@@ -85,9 +82,7 @@ public class arClass extends AppCompatActivity {
                     boxing.setOnClickListener(view -> animateModel(modelRenderable));
 
                 });
-
     }
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -95,7 +90,6 @@ public class arClass extends AppCompatActivity {
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED)
             ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
     }
-
 
     private void recording(){
         if(videoRecord==null){
@@ -113,8 +107,6 @@ public class arClass extends AppCompatActivity {
         }else{
             Toast.makeText(this,"Saving...",Toast.LENGTH_SHORT).show();
         }
-
-
 
     }
 
