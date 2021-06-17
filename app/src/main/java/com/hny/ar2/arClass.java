@@ -1,24 +1,19 @@
 package com.hny.ar2;
 
 import android.Manifest;
-import android.animation.Animator;
 import android.content.pm.PackageManager;
 import android.media.CamcorderProfile;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
 import com.google.ar.core.Anchor;
 import com.google.ar.sceneform.AnchorNode;
 import com.google.ar.sceneform.SkeletonNode;
 import com.google.ar.sceneform.animation.ModelAnimator;
 import com.google.ar.sceneform.rendering.AnimationData;
-import com.google.ar.sceneform.rendering.Color;
-import com.google.ar.sceneform.rendering.MaterialFactory;
 import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.firebase.database.DatabaseReference;
@@ -36,7 +31,6 @@ public class arClass extends AppCompatActivity {
     Button capture;
     Button kick;
     Button boxing;
-    private int i;
     private VideoRecorder videoRecord=null;
 
     @Override
@@ -48,16 +42,16 @@ public class arClass extends AppCompatActivity {
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference("users");
 
-         String userNameString = getIntent().getStringExtra("phone");
-         String phoneNoString= getIntent().getStringExtra("users");
+         String phoneNoString= getIntent().getStringExtra("phone1");
 
          capture=findViewById(R.id.animatebtn);
          kick=findViewById(R.id.kick);
          boxing=findViewById(R.id.boxing);
 
-
-        userHelper userHelper = new userHelper(userNameString,phoneNoString);
+        userHelper userHelper = new userHelper();
+        userHelper.setPhoneNo(phoneNoString);
         reference.child(phoneNoString).setValue(userHelper);
+
 
         arFragment=(ArFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
         model = Uri.parse("model_fight.sfb");
@@ -114,19 +108,22 @@ public class arClass extends AppCompatActivity {
         }
         boolean isRecording = videoRecord.onToggleRecord();
         if(isRecording){
-            Toast.makeText(this,"Started Recording",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Started",Toast.LENGTH_SHORT).show();
 
         }else{
-            Toast.makeText(this,"Stopped Recording",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Saving...",Toast.LENGTH_SHORT).show();
         }
+
+
+
     }
+
     private void animateModel(ModelRenderable modelRenderable) {
 
         if(modelAnimator!=null && modelAnimator.isRunning())modelAnimator.end();
         AnimationData animationData = modelRenderable.getAnimationData(0);
         modelAnimator =new ModelAnimator(animationData,modelRenderable);
         modelAnimator.start();
-
 
     }
 

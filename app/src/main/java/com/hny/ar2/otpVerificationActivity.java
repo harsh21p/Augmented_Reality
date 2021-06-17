@@ -1,6 +1,5 @@
 package com.hny.ar2;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -32,7 +31,7 @@ public class otpVerificationActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     EditText otpField1,otpField2,otpField3,otpField4,otpField5,otpField6;
     private String verificationCodeEnterBySystem;
-    String phoneNo2,user;
+    String phoneNo2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +48,12 @@ public class otpVerificationActivity extends AppCompatActivity {
         otpField6 = findViewById(R.id.otpfield6);
         progressBar = findViewById(R.id.waitingotp);
 
-        phoneNo2=getIntent().getStringExtra("phoneNo1");
-        user=getIntent().getStringExtra("user");
+        phoneNo2=getIntent().getStringExtra("phone");
+
 
         progressBar.setVisibility(View.GONE);
 
         noOtpMove();
-
-
         sendVerificationCodeToUser(phoneNo2);
 
         verifybtn1.setOnClickListener(new View.OnClickListener() {
@@ -134,8 +131,7 @@ public class otpVerificationActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Intent intent = new Intent(getApplicationContext(),arClass.class);
-                            intent.putExtra("phone",phoneNo2);
-                            intent.putExtra("users",user);
+                            intent.putExtra("phone1",phoneNo2);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                         }
