@@ -22,7 +22,9 @@ Firebase authentication ( OTP Verification page ) (Dark mode)
 
 Recorded sample Video :
 
+https://user-images.githubusercontent.com/46632001/123101889-1c2c3c80-d452-11eb-9f99-34b2dd69e607.mp4
 
-https://user-images.githubusercontent.com/46632001/123091087-8f2fb600-d446-11eb-98b1-b8f73cc3fe10.mp4
+
+
 
 
